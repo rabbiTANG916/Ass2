@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "COVID-19 Active cases in the worldside",
+    "width":800,
+    "height": 600,
+    "data":{
+        "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "format":{"type": "topojson","feature": "ne_110m_admin_0_countries"}
+    },
+    "transform": [{
+        "lookup": "properties.NAME",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/rabbiTANG916/Ass2/master/dataset/worldometer_data%EF%BC%881%EF%BC%89.csv"
+          },
+          "key": "Country/Region",
+          "fields": ["Active"]
+        }
+      },
+      {"calculate": "datum.Active", "as": "Active Cases"}
+    ],
+    "projection": {
+      "type": "equirectangular"
+    },
+    "mark": {
+      "type": "geoshape"
+      },
+    "encoding": {
+      "color": {
+        "field": "Active Cases",
+        "type": "quantitative",
+        "scale": {"type": "log"}
+      },
+      "tooltip": [
+        {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+        {"field": "Active", "type": "quantitative"}
+      ]
+    }
+
+}
