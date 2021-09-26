@@ -13,11 +13,11 @@
           "data": {
             "url": "https://raw.githubusercontent.com/rabbiTANG916/Ass2/master/dataset/worldometer_data%EF%BC%881%EF%BC%89.csv"
           },
-          "key": "Country/Region",
-          "fields": ["Active"]
+          "key": "Country",
+          "fields": ["TotalCases"]
         }
       },
-      {"calculate": "datum.Active", "as": "Active Cases"}
+      {"calculate": "datum.TotalCases", "as": "TotalCases"}
     ],
     "projection": {
       "type": "equirectangular"
@@ -27,13 +27,13 @@
       },
     "encoding": {
       "color": {
-        "field": "Active Cases",
+        "field": "TotalCases",
         "type": "quantitative",
-        "scale": {"type": "log"}
+        "scale": {"type": "linear","scheme":"Oranges"}
       },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-        {"field": "Active", "type": "quantitative"}
+        {"field": "TotalCases", "type": "quantitative"}
       ]
     }
 
