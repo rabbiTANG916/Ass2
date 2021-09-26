@@ -29,7 +29,7 @@
       "color": {
         "field": "TotalCases",
         "type": "quantitative",
-        "scale": {"type": "linear","scheme":"Oranges"}
+        "scale": {"type": "linear"}
       },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
