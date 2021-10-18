@@ -1,27 +1,127 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <title>COVID-19 Worldwide Visualisation</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-  
-<div id="covid19_map"></div>
+  <div class="ass2">
+    <h1 id="FIT">FIT3179 Assignment 2</h1>
+    <h2 id="Visualisation">COVID-19 Visualisation</h2>
+    <div class="intro">
+      <p>The covid-19 has always been a popular topic of concern, as the number of cases and
+        deaths continued to rise, people are beginning to pay attention to this human-to-human
+        transmission. Therefore, the action is to discover and present for the people who care
+        about the global COVID-19 situation and the transmission rate trends.</p>
+    </div>
 
-<script type="text/javascript">
 
-  var spec2 = "js/total_cases_map.vg.json";
-  vegaEmbed('#covid19_map', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
+    <div class="pure-g">
+      <div class="pure-u-2-3" style="width:100%">
+        <h3>Worldwide COVID-19 Situation Visualisation</h3>`
+        <div id="covid19_map"></div>
+      </div>
+    </div>
 
+    <div class="pure-map-text">
+      <p>This is the map which display the Worldwide Situation of total cases of COVID-19. The color luminance
+        represents
+        the severity of infection in a country’s population</p>
+    </div>
+    <br>
+    <br>
+
+    <div class="bubble_chart">
+      <div class="left">
+        <h2 style="text-align: center;">COVID-19 bubble chart</h2>
+        <p style="text-align: center;">Bubble chart text here......here...here.</p>
+        <div id="covid19_bubble"></div>
+      </div>
+    </div>
+<br>
+<br>
+    <div class="wrap">
+      <div class="leftchart">
+        <h2 style="text-align: center;margin-top: 0px;">COVID-19 Death Cases Top 10 Country</h2>
+        <p style="text-align: center;">covid19 death top 10 text text.........text.</p>
+        <div id="covid19_bar"></div>
+      </div>
+      <div class="rightchart">
+        <h2 style="text-align: center;">COVID-19 line trends Visualisation </h2>
+        <p style="text-align: center;">multiple line chart view text text text.</p>
+        <div id="covid19_multiline"></div>
+      </div>
+    </div>
+
+
+    <div class="pure-g">
+    <div class="pure-u-2-3" style="width:100%">
+      <h3 id="pie_title">COVID-19 in Australia</h3>
+      <div id="covid19_aus_pie"></div>
+      <p>text text text text</p>
+    </div>
+  </div>
+
+  </div>
+  <div class="pure-g">
+    <div class="pure-u-1-1 final_world">
+        <p>The visualisation is created by <a href="https://github.com/rabbiTANG916/Ass2"
+                target="_blank">Wei Tang</a>.
+            The datasource is <a
+                href="https://www.kaggle.com/imdevskp/corona-virus-report"
+                target=" _blank">from Kaggle</href>
+                .</p>
+    </div>
+</div>
+  <!-- end page -->
+
+
+
+
+
+
+  <script type="text/javascript">
+    var spec2 = "js/total_cases_map.vg.json";
+    vegaEmbed('#covid19_map', spec2).then(function (result) {
+      // Avccess the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+
+    var spec3 = "js/active_cases_bubble.vg.json";
+    vegaEmbed('#covid19_bubble', spec3).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec4 = "js/death_cases_line.vg.json";
+    vegaEmbed('#covid19_multiline', spec4).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec5 = "js/top_death_case_bar.vg.json";
+    vegaEmbed('#covid19_bar', spec5).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec6 = "js/aus_pie.vg.json";
+    vegaEmbed('#covid19_aus_pie', spec6).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
 </body>
+
 </html>
