@@ -47,12 +47,16 @@
 .left{
 	float: left;
 	width: 900px;
-	margin-top: 30px;
+	margin-top: 40px;
 }
 
 .right{
 	margin-left: 910px;
 	/* margin-top: 500px; */
+}
+
+.final_word{
+	font-family: Georgia;
 }
 
 
